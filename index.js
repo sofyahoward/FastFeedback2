@@ -11,7 +11,7 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
-//telling app to use cookies for sessions
+//telling app to use cookies for sessions.
 app.use(
   cookieSession({
     //how long this cookie can live in the browser before it expires. In this case, 30 days.
