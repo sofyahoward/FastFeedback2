@@ -11,7 +11,7 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
-//telling app to use cookies for sessions.
+//tell app to use cookies for sessions.
 app.use(
   cookieSession({
     //how long this cookie can live in the browser before it expires. In this case, 30 days.
@@ -19,9 +19,9 @@ app.use(
     keys: [keys.cookieKey]
   })
 );
-
+//tell passport to use cookies to manage authentication and sessions
 app.use(passport.initialize());
-app.use('./routes/authRoutes')(app);
+app.use(passport.session());
 
 //Valid javascript to require the function imported from another file and then to imediately invoking the app object.
 require('./routes/authRoutes')(app);
