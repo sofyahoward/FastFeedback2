@@ -20,17 +20,20 @@ passport.use(
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
         //URL that the user is redirected to upon granting permission for authentication
-        callbackURL: '/auth/google/callback'
-    },(accessToken, refreshToken, profile, done) => {
-        User.findOne({googleId: profile.id}).then(existingUser => {
-            if(existingUser){
-                // we already have a record with the given profile ID
-                done(null, existingUser);
-            } else{
-                //upon authentication create new user object in mongoose with google ID. This doesnt persist to the mongoDB. you MUST use .save() method to have it go to the mongoDB
-                new User({ googleId: profile.id}).save().then(user => done(null, user));
-            }
-        });
+        callbackURL: '/auth/google/callback',
+        //this is one solution to resolve hppts issue with google auth. This allows us to trust the Heroku's proxy and redirect to Google Auth. The second solution is to spell out callbackURI in the config files for droduction/development
+        proxy: true
+    },
+        (accessToken, refreshToken, profile, done) => {
+            User.findOne({googleId: profile.id}).then   (existingUser => {
+                if(existingUser){
+                    // we already have a record with the given profile ID
+                    done(null, existingUser);
+                } else{
+                    //upon authentication create new user object in mongoose with google ID. This doesnt persist to the mongoDB. you MUST use .save() method to have it go to the mongoDB
+                    new User({ googleId: profile.id}).save().then(user => done(null, user));
+                }
+            });
         
         //information about the user to be added to the database
     console.log("access token", accessToken);
