@@ -24,21 +24,24 @@ passport.use(
         //this is one solution to resolve hppts issue with google auth. This allows us to trust the Heroku's proxy and redirect to Google Auth. The second solution is to spell out callbackURI in the config files for droduction/development
         proxy: true
     },
-        (accessToken, refreshToken, profile, done) => {
-            User.findOne({googleId: profile.id}).then   (existingUser => {
-                if(existingUser){
-                    // we already have a record with the given profile ID
-                    done(null, existingUser);
-                } else{
-                    //upon authentication create new user object in mongoose with google ID. This doesnt persist to the mongoDB. you MUST use .save() method to have it go to the mongoDB
-                    new User({ googleId: profile.id}).save().then(user => done(null, user));
-                }
-            });
+        //use Async/Await syntax instead of promises
+        async (accessToken, refreshToken, profile, done) => {
+            const existingUser = await User.findOne({googleId: profile.id})
+           
+            if(existingUser){
+                // we already have a record with the given profile ID
+               return done(null, existingUser);
+            } 
+                //we dont need else statement because we call return in the if statement
+                //we dont have a user record with this ID, make a new record!
+                //upon authentication create new user object in mongoose with google ID. This doesnt persist to the mongoDB. you MUST use .save() method to have it go to the mongoDB
+                const user = await new User({ googleId: profile.id}).save()
+                done(null, user);
         
-        //information about the user to be added to the database
-    console.log("access token", accessToken);
-    console.log("refresh token ", refreshToken);
-    console.log("profile:", profile);
-    }
+            //information about the user to be added to the database
+            console.log("access token", accessToken);
+            console.log("refresh token ", refreshToken);
+            console.log("profile:", profile);
+        }
     )
 );
