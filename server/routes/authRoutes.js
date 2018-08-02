@@ -8,11 +8,18 @@ module.exports = app => {
     }));
 
     //googleStrategy has the code this time around and it knows to use passport to get user profile instead of authenticating the user. the user has the code from google this time.
-    app.get('/auth/google/callback', passport.authenticate('google'));
+    app.get(
+        '/auth/google/callback', 
+        passport.authenticate('google'),
+        //redirect the user to this route upon login
+        (req, res) => {
+            res.redirect('/surveys');
+        }
+    );
     //route handler that allows user to logout. kills the cookie and sends the response to show that user is undefined due to logout.
     app.get('/api/logout', (req, res) => {
         req.logout();
-        res.send(req.user);
+        res.redirect('/');
     });
     //this is a route handler for current user.
     app.get('/api/current_user', (req, res)=>{
