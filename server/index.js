@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 //There is no function that is exported from passport.js but we need the whole passport.js file.
 require('./models/User');
@@ -10,6 +11,9 @@ require('./services/passport');
 mongoose.connect(keys.mongoURI);
 
 const app = express();
+
+//tell express to use body parser middlewear. rec.body property will be assigned and then the information within the json object could be accessed anywhere in the app.
+app.use(bodyParser.json());
 
 //tell app to use cookies for sessions.
 app.use(
@@ -25,6 +29,7 @@ app.use(passport.session());
 
 //Valid javascript to require the function imported from another file and then to imediately invoking the app object.
 require('./routes/authRoutes')(app);
+require('./routes/billingRoutes')(app);
 
 
 // make port constant to dynamically bind based on heroku port assignment or port 5000 on local
