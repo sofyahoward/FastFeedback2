@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 //There is no function that is exported from passport.js but we need the whole passport.js file.
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 //mongoose connecting remotely hosted mongoDB on MLab to Node/Express server
 mongoose.connect(keys.mongoURI);
@@ -30,6 +31,7 @@ app.use(passport.session());
 //Valid javascript to require the function imported from another file and then to imediately invoking the app object.
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV ==='production'){
   //express will serve up production assets
