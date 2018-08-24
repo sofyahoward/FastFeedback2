@@ -5,6 +5,7 @@ import { reduxForm, Field } from 'redux-form';
 //reduxForm allows this component to communicate with Redux store. It is very similar in that sense to the connect function.
 import { Link } from 'react-router-dom'
 import SurveyField from './SurveyField';
+import validateEmails from '../../utils/validateEmails';
 
 const FIELDS = [
     {label: 'Survey Title', name: 'title'},
@@ -39,6 +40,24 @@ class SurveyForm extends Component {
         );
     }
 }
+
+function validate(values) {
+    // if the errors object is empty, the form is valid and we are good to go
+    //redux form automatically matches up the field of the form with the error because the name of the field is the same
+    const errors = {};
+
+    errors.emails = validateEmails(values.emails || '');
+    _.each(FIELDS, ({name}) => {
+        if(!values[name]){
+            errors[name]='You must provide a value'
+        }
+    });
+
+    return errors;
+}
+
 export default reduxForm({
+    // validate is equal to validate: validate
+    validate,
     form: 'surveyForm'
 })(SurveyForm);
