@@ -22,7 +22,7 @@ class App extends Component{
     render() {
         return (
             //container className makes the form the size that it currently is
-            <div className='container'>
+            <div>
                <BrowserRouter>
                     <div className='container'>
                        <Header/>
