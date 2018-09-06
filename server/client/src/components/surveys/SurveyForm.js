@@ -41,7 +41,7 @@ function validate(values) {
     //redux form automatically matches up the field of the form with the error because the name of the field is the same
     const errors = {};
 
-    errors.emails = validateEmails(values.emails || '');
+    errors.recipients = validateEmails(values.recipients || '');
     _.each(formFields, ({name}) => {
         if(!values[name]){
             errors[name]='You must provide a value'
