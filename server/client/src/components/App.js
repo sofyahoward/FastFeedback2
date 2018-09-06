@@ -24,7 +24,7 @@ class App extends Component{
             //container className makes the form the size that it currently is
             <div>
                <BrowserRouter>
-                    <div className='container'>
+                    <div>
                        <Header/>
                        <Route exact path = "/" component={Landing}/>
                        <Route exact path = "/surveys" component={Dashboard}/>
