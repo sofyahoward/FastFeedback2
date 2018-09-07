@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR');
 
 .NavBar {
-    background-color: #34383f;
+    background-color: #262a38;
     font-family: 'Noto Serif KR', sans-serif;
 }
 .Header {
@@ -10,7 +10,7 @@
 .Navigation {
     width: 100%;
     display: flex;
-    margin-left: 5%;
+    margin-left: 10%;
     position: relative;
 }
 
@@ -24,7 +24,7 @@
     font-size: 25px;
 }
 .RightLogo {
-    margin-left: 70%;
+    margin-left: 60%;
     position: absolute;
     top: 0; 
     left: 0;
@@ -33,7 +33,7 @@
 }
 .Payment {
     background-color:#e2ffe5;
-    color: #34383f;
+    color: #262a38;
     height: inherit;
     padding: 0;
     padding-right: 5px;

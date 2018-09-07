@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
-import classes from './Header.css';
+import classes from '../components/header/Header.css';
 
 //stripe payment component. renders a button that brings up a payment form upon a click
 class Payments extends Component {
