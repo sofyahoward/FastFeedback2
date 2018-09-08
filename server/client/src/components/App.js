@@ -9,6 +9,7 @@ import Header from '../components/header/Header';
 import Landing from '../components/landing/Landing';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
+import FooterPg from '../components/footer/Footer';
 
 
 
@@ -29,6 +30,7 @@ class App extends Component{
                        <Route exact path = "/" component={Landing}/>
                        <Route exact path = "/surveys" component={Dashboard}/>
                        <Route exact path = "/surveys/new" component={SurveyNew}/>
+                       <FooterPg/>
                     </div>
                </BrowserRouter>
             </div>

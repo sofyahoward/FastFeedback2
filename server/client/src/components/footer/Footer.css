@@ -1,0 +1,47 @@
+.footer {
+    position: absolute;
+    top: 105%;
+    height: 25%;
+    width: 100%;
+    background: #262a38;
+      
+}
+
+.nav {
+    background: #656b74;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+    padding-top: 1%;
+  }
+  .left {
+      margin-left: 5%;
+      text-align: left;
+  }
+  .nav > div {
+    min-width: 0;
+    white-space: nowrap;
+  }
+  
+  .headerTitle {
+    flex-basis: 60%;
+    text-align: center;
+    color: #18e1eb;
+  }
+  
+  .nav div a {
+    text-decoration: none;
+    padding: 0px 20px;
+    font-weight: 600;
+  }
+  .logout {
+      color: #ffff00;
+      margin-right: 5%;
+      text-align: right;
+  }
+  .center {
+      text-align: center;
+      color: red;
+  }
