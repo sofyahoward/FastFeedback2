@@ -11,7 +11,7 @@ const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
 
     const reviewFields = _.map(formFields, field => {
         return (
-            <div key={field.name}>
+            <div style={{marginBottom: '2%', marginTop: '2%', marginLeft: '5%'}} key={field.name}>
                 <label>{field.label}</label>
                 <div>
                     {formValues[field.name]}
@@ -22,18 +22,21 @@ const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
 
     return (
         <div>
-            <h5>Please confirm your entries</h5>
+            <h5 style={{textAlign: 'center', marginTop: '5%'}}>Please confirm your entries</h5>
             {reviewFields}
             
-            <button className="yellow darken-3 white-text btn-flat" onClick={onCancel}>
-                Back
+            <button style={{backgroundColor:'#FA5858', position: 'absolute', height: '30px', width: '100px', marginLeft: '5%', padding: '1%', color: 'white'}} onClick={onCancel}>
+                <div style={{ position: 'absolute', top:'20%', left: '25%'}}>Back</div>
             </button>
+
             <button 
             // arrow function makes sure the function is not immediately executed
                 onClick={() => submitSurvey(formValues, history)}
-                className='green btn-flat right white-text'>
-                Send Survey
-                <i className="material-icons right">email</i>
+                style={{backgroundColor:'#A9F5BC', position: 'absolute', height: '30px', width: '150px', marginLeft: '80%', padding: '1%', color: '#151515'}}>
+                      
+                      <div style={{ position: 'absolute', top:'20%', left: '30%'}}>Send Survey</div>
+               
+                <i style={{ position: 'absolute', top:'20%', left: '2%'}} className="material-icons right">email</i>
             </button>
         </div>
     );

@@ -22,13 +22,13 @@ class SurveyForm extends Component {
                 <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
                     {this.renderFields()}
                     
-                    <Link to="/surveys" className="red btn-flat white-text">
-                        Cancel
+                    <Link to="/surveys" style={{backgroundColor:'#FA5858', position: 'absolute', height: '30px', width: '100px', marginLeft: '5%', padding: '1%', color: 'white'}}>
+                        <div style={{ position: 'absolute', top:'20%', left: '25%'}}>Cancel</div>
                     </Link>
 
-                    <button type="submit" className="teal btn-flat right white-text">
-                        Next
-                        <i className="material-icons right">done</i>
+                    <button type="submit" style={{backgroundColor:'#A9F5BC', position: 'absolute', height: '30px', width: '100px', marginLeft: '86%', padding: '1%', color: '#151515'}}>
+                      
+                        <div style={{ position: 'absolute', top:'20%', left: '35%'}}>Next</div>
                     </button>
                 </form>
             </div>

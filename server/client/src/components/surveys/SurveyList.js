@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchSurveys } from '../../actions';
+import classes from './SurveyList.css';
 
 class SurveyList extends Component {
     //this life cycle method ensures that every time this component is rendered to the screen, we fetch the surveys through the action creator
@@ -9,27 +11,51 @@ class SurveyList extends Component {
     }
 
     renderSurveys(){
-        return this.props.surveys.reverse().map(survey => {
+        if(this.props.surveys.length === 0) {
             return (
-                <div className="card darken-1" key={survey._id}>
-                    <div className="card-content">
-                        <span className="card-title">{survey.title}</span>
-                        <p>
-                            {survey.body}
-                        </p>
-                        <p className="right">
-                            Sent On: {new Date(survey.dateSent).toLocaleDateString()}
-                        </p>
-                    </div>
-                    <div className="card-action">
-                        <a>Yes: {survey.yes}</a>
-                        <a>No: {survey.no}</a>
+            <div>
+                <div className={classes.NoSurvey}>
+                    <div className={classes.Overlay}>
+                     <div className={classes.text}>Looks like you dont have any surveys created just yet. Create One now.</div>
                     </div>
                 </div>
-            )
-        })
-    }
 
+                <div className="fixed-action-btn">
+                    <Link to="/surveys/new" className={classes.addBtn}>
+                        <i className="material-icons" style={{color: 'white', position: 'absolute', top: '25%', left: '25%'}}>add</i>
+                    </Link>
+                </div>
+            </div>
+            )
+
+        }  
+            return this.props.surveys.reverse().map(survey => { 
+                return (
+                    <div className={classes.Card} key={survey._id}>
+                        <div className="card-content">
+                            <span className="card-title">{survey.title}</span>
+                            <p>
+                                {survey.body}
+                            </p>
+                            <p className="right">
+                                Sent On: {new Date(survey.dateSent).toLocaleDateString()}
+                            </p>
+                        </div>
+                        <div >
+                            <a className={classes.Left}>Yes: {survey.yes}</a>
+                            <a className={classes.Right}>No: {survey.no}</a>
+                        </div>
+                        <div className="fixed-action-btn">
+                            <Link to="/surveys/new" className={classes.addBtnRight}>
+                                <i className="material-icons" style={{color: 'white', position: 'absolute', top: '25%', left: '25%'}}>add</i>
+                            </Link>
+                        </div>
+                    </div>      
+                )
+            })
+            
+        }
+       
     render() {
         return (
             <div>

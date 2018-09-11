@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR');
+
 .footer {
-    position: absolute;
-    top: 105%;
+  position: fixed;
+   bottom: 0;
     height: 25%;
     width: 100%;
     background: #262a38;
+    font-family: 'Noto Serif KR', sans-serif;
       
 }
 
@@ -14,7 +17,7 @@
     align-items: center;
     justify-content: space-between;
     height: fit-content;
-    padding-top: 1%;
+    /* padding-top: 1%; */
   }
   .left {
       margin-left: 5%;
@@ -41,7 +44,4 @@
       margin-right: 5%;
       text-align: right;
   }
-  .center {
-      text-align: center;
-      color: red;
-  }
+ 

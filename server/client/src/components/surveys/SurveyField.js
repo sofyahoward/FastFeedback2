@@ -5,12 +5,12 @@ import React from 'react';
 //ES6 destructuring ({input}) is props.input
 export default ({ input, label, meta: {error, touched} }) => {
     return (
-        <div>
-            <label>{label}</label>
+        <div style={{marginTop: '3%'}}>  
+            <label style={{color: '#151515', marginLeft: '5%', fontSize: '14px'}}>{label}</label>
             {/* this allows us to use all properties on input */}
-            <input {...input} style={{marginBottom: '5px'}}/>
+            <input {...input} style={{marginRight: '2%', marginLeft: '5%', marginBottom: '5px', width: '90%'}}/>
             {/* if touched is true and error is true, render error, otherwise exit this statement */}
-            <div className='red-text' style={{marginBottom: '20px'}}>
+            <div style={{color:'red', marginLeft: '5%', marginBottom: '20px'}}>
              {touched && error}
             </div>
         </div>

@@ -7,7 +7,7 @@ import * as actions from '../actions';
 
 import Header from '../components/header/Header';
 import Landing from '../components/landing/Landing';
-import Dashboard from './Dashboard';
+import Dashboard from '../components/Dashboard/Dashboard';
 import SurveyNew from './surveys/SurveyNew';
 import FooterPg from '../components/footer/Footer';
 
