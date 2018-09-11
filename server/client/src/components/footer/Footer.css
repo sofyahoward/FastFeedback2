@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR');
 
 .footer {
-  position: fixed;
-   bottom: 0;
+    position: fixed;
+    bottom: 0;
     height: 25%;
     width: 100%;
+    padding-top: 10px;
     background: #262a38;
     font-family: 'Noto Serif KR', sans-serif;
       

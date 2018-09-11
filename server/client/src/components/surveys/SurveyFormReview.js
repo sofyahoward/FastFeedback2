@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import formFields from './formFields';
 import {withRouter} from 'react-router-dom';
-import * as actions from '../../actions';
+import * as actions from '../../actions/index';
 
 //destructuring. Instead of receiving all props, we just want to use onCancel and formValues that we have assigned values down below in mapStateToProps
 const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
@@ -36,7 +36,7 @@ const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) => {
                       
                       <div style={{ position: 'absolute', top:'20%', left: '30%'}}>Send Survey</div>
                
-                <i style={{ position: 'absolute', top:'20%', left: '2%'}} className="material-icons right">email</i>
+                        <i style={{ position: 'absolute', top:'20%', left: '2%'}} className="material-icons right">email</i>
             </button>
         </div>
     );

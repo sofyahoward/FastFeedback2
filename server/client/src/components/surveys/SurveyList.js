@@ -31,6 +31,7 @@ class SurveyList extends Component {
         }  
             return this.props.surveys.reverse().map(survey => { 
                 return (
+                    
                     <div className={classes.Card} key={survey._id}>
                         <div className="card-content">
                             <span className="card-title">{survey.title}</span>
@@ -50,7 +51,8 @@ class SurveyList extends Component {
                                 <i className="material-icons" style={{color: 'white', position: 'absolute', top: '25%', left: '25%'}}>add</i>
                             </Link>
                         </div>
-                    </div>      
+                    </div>  
+                      
                 )
             })
             

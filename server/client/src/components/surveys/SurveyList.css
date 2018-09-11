@@ -38,15 +38,18 @@
     font-size: 25px;
     position: absolute;
     top: 20%;
-    left: 15%;
+    left: 20%;
 }
 .Card {
-    margin: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
     background-color: rgb(38, 42, 56, 0.8);
     color: #e2ffe5;
     font-family: 'Noto Serif KR', sans-serif;
     text-align: left;
     padding: 1%;
+    margin-bottom: 11%;
 }
 .Right {
     position: relative;
